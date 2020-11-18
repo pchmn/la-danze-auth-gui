@@ -1,0 +1,27 @@
+{
+  "common": {
+    "errors": {
+      "requiredField": "Champ obligatoire",
+      "invalidField": "{{field}} invalide",
+      "minLength": "{{min}} caractères minimum"
+    }
+  },
+  "signUp": {
+    "title": "Créer un compte",
+    "emailStep": {
+      "title": "Choisis un email et un nom d'utilisateur",
+      "email": "Email",
+      "username": "Nom d'utilisateur",
+      "emailFormatError": "L'email n'est pas valide",
+      "next": "Suivant"
+    },
+    "passwordStep": {
+      "title": "Choisis un mot de passe",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmation",
+      "previous": "Précédent",
+      "register": "S'inscrire",
+      "passwordsMismatch": "Mots de passe différent"
+    }
+  }
+}
