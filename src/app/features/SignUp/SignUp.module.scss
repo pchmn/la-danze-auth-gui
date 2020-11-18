@@ -1,0 +1,32 @@
+.SignUp {
+  min-height: 600px;
+  height: auto;
+}
+
+.leftPart {
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+  }
+
+
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
+.rightPart {
+  background-color: #3B3B3B;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
