@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
 
-body {
-  margin: 0;
-  background: #4B4B4B;
+html {
   height: 100%;
-  padding: 40px;
-  font-family: 'Work Sans', sans-serif;
-}
 
+  body {
+    margin: 0;
+    background: #4B4B4B;
+    height: 100%;
+    font-family: 'Work Sans', sans-serif;
+
+    #root {
+      height: 100%;
+    }
+
+    .flex-column {
+      display: flex;
+      flex-flow: column;
+    }
+
+    .MuiContainer-root {
+      @media (max-width: 530px) {
+        padding: 20px 0 0 0;
+      }
+    }
+  }
+}

@@ -8,20 +8,13 @@
   },
   "signUp": {
     "title": "Créer un compte",
-    "emailStep": {
-      "title": "Choisis un email et un nom d'utilisateur",
-      "email": "Email",
-      "username": "Nom d'utilisateur",
-      "emailFormatError": "L'email n'est pas valide",
-      "next": "Suivant"
-    },
-    "passwordStep": {
-      "title": "Choisis un mot de passe",
-      "password": "Mot de passe",
-      "confirmPassword": "Confirmation",
-      "previous": "Précédent",
-      "register": "S'inscrire",
-      "passwordsMismatch": "Mots de passe différent"
-    }
+    "email": "Email",
+    "username": "Nom d'utilisateur",
+    "emailFormatError": "L'email n'est pas valide",
+    "password": "Mot de passe",
+    "passwordHelper": "Le mot de passe doit contenir au moins 8 caractères.",
+    "confirmPassword": "Confirmation",
+    "passwordsMismatch": "Mots de passe différent",
+    "validate": "Valider"
   }
 }

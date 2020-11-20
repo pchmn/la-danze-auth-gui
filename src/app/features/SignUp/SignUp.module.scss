@@ -1,6 +1,64 @@
 .SignUp {
-  min-height: 600px;
-  height: auto;
+  height: 100%;
+  padding-top: 40px;
+
+  @media (max-width: 530px) {
+    padding-top: 20px;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
+  }
+
+  .paper {
+    flex: 1;
+    margin-top: 40px;
+    padding: 70px;
+    max-width: 530px;
+    background: #3D3D3D;
+    border-radius: 10px;
+    
+    @media (max-width: 530px) {
+      padding: 50px;
+      margin-top: 20px;
+      height: fit-content;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    .title {
+      margin-top: 0;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      font-weight: 400;
+
+      @media (max-width: 530px) {
+        font-size: 1.8rem;
+      }
+    }
+  
+    .form {
+      margin: auto;
+
+      .passwordHelper {
+        display: block;
+        padding: 5px 14px 15px 14px;
+        font-size: 0.9rem;
+      }
+  
+      .textField {
+        display: block;
+        margin-bottom: 25px;
+      }
+  
+      .submitButton {
+        border-radius: 30px;
+        padding: 6px 40px;
+        margin-top: 10px;
+      }
+    }
+  }
 }
 
 .leftPart {
