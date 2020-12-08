@@ -1,85 +1,22 @@
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
+import { Redirect, Route, Switch } from "react-router-dom";
 import './App.scss';
-import { SignUp } from './features/SignUp/SignUp';
+import { withInitApp } from './core/initApp/withInitApp';
+import { Auth } from './features/Auth/Auth';
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: '#E74C3C',
-    },
-    secondary: {
-      main: '#FFB74D',
-    },
-  },
-  typography: {
-    fontFamily: [
-      '"Work Sans"',
-      '"Open Sans"',
-      'sans-serif',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial'
-    ].join(','),
-  }
-});
 
-function App() {
+function AppComponent() {
   return (
-    <ThemeProvider theme={theme}>
-      <SignUp />
-      {/* <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Counter />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-          <span>
-            <span>Learn </span>
-            <a
-              className="App-link"
-              href="https://reactjs.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React
-          </a>
-            <span>, </span>
-            <a
-              className="App-link"
-              href="https://redux.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Redux
-          </a>
-            <span>, </span>
-            <a
-              className="App-link"
-              href="https://redux-toolkit.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Redux Toolkit
-          </a>
-          ,<span> and </span>
-            <a
-              className="App-link"
-              href="https://react-redux.js.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React Redux
-          </a>
-          </span>
-        </header>
-      </div> */}
-    </ThemeProvider>
+    <Switch>
+      <Route path="/(signin|signup)" fullHeight={true}>
+        <Auth />
+      </Route>
+      <Route exact path="/">
+        <Redirect to="/signup/account-created" />
+      </Route>
+    </Switch>
   );
 }
 
-export default App;
+
+export default withInitApp(AppComponent) as React.ElementType;

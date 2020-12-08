@@ -1,0 +1,30 @@
+.Container {
+  display: flex;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+
+  .progress {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .logo {
+    text-align: center;
+    img {
+      width: 200px;
+    }
+  }
+}
+
+@keyframes createBox {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
