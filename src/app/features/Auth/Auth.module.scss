@@ -1,0 +1,75 @@
+.Auth {
+
+  height: 100%;
+  padding-top: 40px;
+
+  @media (max-width: 530px) {
+    padding-top: 20px;
+  }
+
+  .logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .signInHelper {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    color: #979797;
+    font-size: 0.9rem;
+
+    @media (max-width: 530px) {
+      margin-top: 20px;
+    }
+
+    a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-left: 5px;
+    }
+  }
+
+  .paper {
+        
+    @media (max-width: 530px) {
+      padding: 50px;
+      height: 100%;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    .title {
+      margin-top: 0;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      font-weight: 400;
+
+      @media (max-width: 530px) {
+        font-size: 1.8rem;
+      }
+    }
+  
+    .form {
+      margin: auto;
+  
+      .textField {
+        display: block;
+        margin-bottom: 25px;
+      }
+  
+      .submitButton {
+        margin-top: 10px;
+      }
+    }
+
+    .progress {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      width: 100%;
+    }
+  }
+}

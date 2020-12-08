@@ -18,13 +18,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "strictPropertyInitialization": false
   },
-  "plugins": [
-    {
-      "name": "typescript-tslint-plugin"
-    }
-  ],
   "include": [
     "src"
   ]
