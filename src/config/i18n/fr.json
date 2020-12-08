@@ -4,17 +4,28 @@
       "requiredField": "Champ obligatoire",
       "invalidField": "{{field}} invalide",
       "minLength": "{{min}} caractères minimum"
+    },
+    "form": {
+      "validate": "Valider"
     }
   },
-  "signUp": {
-    "title": "Créer un compte",
-    "email": "Email",
-    "username": "Nom d'utilisateur",
-    "emailFormatError": "L'email n'est pas valide",
+  "auth": {
     "password": "Mot de passe",
-    "passwordHelper": "Le mot de passe doit contenir au moins 8 caractères.",
-    "confirmPassword": "Confirmation",
-    "passwordsMismatch": "Mots de passe différent",
-    "validate": "Valider"
+    "noAccount": "Pas encore de compte ?",
+    "createAccount": "Créer un compte",
+    "alreadyAnAccount": "Déjà un compte ?",
+    "signUp": {
+      "title": "Créer un compte",
+      "email": "Email",
+      "username": "Nom d'utilisateur",
+      "emailFormatError": "L'email n'est pas valide",
+      "passwordHelper": "Le mot de passe doit contenir au moins 8 caractères.",
+      "confirmPassword": "Confirmation",
+      "passwordsMismatch": "Mots de passe différent"
+    },
+    "signIn": {
+      "title": "Se connecter",
+      "emailOrUsername": "Email ou nom d'utilisateur"
+    }
   }
 }

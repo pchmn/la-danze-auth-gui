@@ -5,9 +5,14 @@ html {
 
   body {
     margin: 0;
-    background: #4B4B4B;
+    background: #1a1c1f;
     height: 100%;
     font-family: 'Work Sans', sans-serif;
+
+    a {
+      text-decoration: none;
+      color: #e74c3cb8;
+    }
 
     #root {
       height: 100%;
@@ -22,6 +27,48 @@ html {
       @media (max-width: 530px) {
         padding: 20px 0 0 0;
       }
+    }
+
+    .MuiButtonBase-root {
+      border-radius: 30px;
+      padding: 6px 40px;
+      text-transform: none;
+
+      &.loadingButton {
+        .MuiCircularProgress-root {
+          margin-left: 10px;
+          color: #8e8e8e;
+          ;
+        }
+      }
+    }
+
+    .MuiFormControl-root  {
+      .MuiFormLabel-root, .MuiOutlinedInput-root {
+        &.Mui-error {
+          color: #f48536;
+
+          .MuiOutlinedInput-notchedOutline {
+            border-color: #f48536;
+          }
+        }
+      }
+
+      .MuiFormHelperText-root {
+        &.Mui-error {
+          color: #f48536;
+        }
+      }
+    }
+
+    .MuiPaper-root {
+      flex: 1;
+      padding: 70px;
+      max-width: 530px;
+      background: #27292c;
+      border-radius: 10px;
+      position: relative;
+      overflow: auto;
     }
   }
 }
