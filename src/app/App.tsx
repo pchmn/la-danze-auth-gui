@@ -1,20 +1,23 @@
 import React from 'react';
-import { Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import './App.scss';
 import { withInitApp } from './core/initApp/withInitApp';
 import { Auth } from './features/Auth/Auth';
+import { AnimatedRoute, AnimatedSwitch } from './shared/animation/RouteTransition';
 
 
 function AppComponent() {
   return (
-    <Switch>
-      <Route path="/(signin|signup)" fullHeight={true}>
-        <Auth />
-      </Route>
-      <Route exact path="/">
-        <Redirect to="/signup/account-created" />
-      </Route>
-    </Switch>
+    <BrowserRouter>
+      <AnimatedSwitch>
+        <AnimatedRoute path="/(signin|signup)" fullHeight={true}>
+          <Auth />
+        </AnimatedRoute>
+        <AnimatedRoute exact path="/">
+          <Redirect to="/signup/account-created" />
+        </AnimatedRoute>
+      </AnimatedSwitch>
+    </BrowserRouter>
   );
 }
 

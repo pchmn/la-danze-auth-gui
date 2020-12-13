@@ -1,11 +1,9 @@
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { MountTransition } from '../../shared/animation/MountTransition';
+import { BrowserRouter, Link, useRouteMatch } from 'react-router-dom';
 import { AnimatedRoute, AnimatedSwitch } from '../../shared/animation/RouteTransition';
 import styles from './Auth.module.scss';
 import { SignIn } from './SignIn/SignIn';
@@ -14,12 +12,14 @@ import { SignUp } from './SignUp/SignUp';
 export function Auth() {
   const { t } = useTranslation();
   const matches = useMediaQuery('(max-width: 530px)');
+  let { url } = useRouteMatch();
+  console.log('in Auth', url)
 
   return (
-    <AnimatePresence>
-      <MountTransition fullHeight={true}>
-        <Container className={`${styles.Auth} ${matches ? 'flex-column' : ''}`} maxWidth="sm">
-          <img className={styles.logo} alt="logo" src="/images/logo-48px.png" />
+    <>
+      <Container className={`${styles.Auth} ${matches ? 'flex-column' : ''}`} maxWidth="sm">
+        <img className={styles.logo} alt="logo" src="/images/logo-48px.png" />
+        <BrowserRouter>
           <AnimatedSwitch>
             <AnimatedRoute path="/signup" fullHeight={true}>
               <span className={styles.signInHelper}>{t('auth.alreadyAnAccount')}<Link to="/signin">{t('auth.signIn.title')}</Link></span>
@@ -34,9 +34,9 @@ export function Auth() {
               </Paper>
             </AnimatedRoute>
           </AnimatedSwitch>
-        </Container>
-      </MountTransition>
-    </AnimatePresence>
+        </BrowserRouter>
+      </Container>
+    </>
   );
 }
 
