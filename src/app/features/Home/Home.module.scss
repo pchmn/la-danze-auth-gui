@@ -1,0 +1,42 @@
+.Home {
+  .toolbar  {
+    height: 150px;
+    position: relative;
+
+    .logo {
+      position: absolute;
+      top: 15px;
+      left: 18.5px;
+      transition: all 0.225s;
+
+      &.logoOpen {
+        transform: translateY(-50%);
+        top: 50%;
+      }
+
+      img {
+        vertical-align: middle;
+      }
+
+      span {
+        margin-left: 20px;
+      }
+
+    }
+
+    .toggleButton {
+      position: absolute;
+      top: 85px;
+      left: 18.5px;
+      transition: all 0.225s;
+      transform: rotate(0deg) translateY(0);
+
+        &.open {
+          transform: rotate(180deg) translateY(50%);
+          // right: 18.5px;
+          left: 230px;
+          top: 50%;
+        }
+    }
+  }
+}
