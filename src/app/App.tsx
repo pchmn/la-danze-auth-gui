@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from "react-router-dom";
 import './App.scss';
 import { withInitApp } from './core/initApp/withInitApp';
@@ -8,12 +8,18 @@ import { AnimatedRoute, AnimatedSwitch } from './shared/animation/RouteTransitio
 
 
 function AppComponent() {
+  const [key, setKey] = useState<string | number>();
+
+  useEffect(() => {
+    setKey(Math.random());
+  }, [])
+
   return (
-    <AnimatedSwitch>
+    <AnimatedSwitch switchKey={key}>
       <AnimatedRoute path="/(signin|signup)" fullHeight={true}>
         <Auth />
       </AnimatedRoute>
-      <AnimatedRoute path="/my-account" fullHeight={true}>
+      <AnimatedRoute path="/(my-account|settings)" fullHeight={true}>
         <Home />
       </AnimatedRoute>
       <AnimatedRoute exact path="/">

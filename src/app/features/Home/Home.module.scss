@@ -10,8 +10,8 @@
       transition: all 0.225s;
 
       &.logoOpen {
-        transform: translateY(-50%);
-        top: 50%;
+        // transform: translateY(-50%);
+        // top: 50%;
       }
 
       img {
@@ -29,13 +29,13 @@
       top: 85px;
       left: 18.5px;
       transition: all 0.225s;
-      transform: rotate(0deg) translateY(0);
+      // transform: rotate(0deg) translateY(0);
 
         &.open {
-          transform: rotate(180deg) translateY(50%);
+          transform: rotate(180deg);
           // right: 18.5px;
-          left: 230px;
-          top: 50%;
+          // left: 230px;
+          // top: 50%;
         }
     }
   }

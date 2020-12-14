@@ -12,6 +12,10 @@ html {
     a {
       text-decoration: none;
       color: #e74c3cb8;
+
+      .MuiListItem-root, .MuiListItemIcon-root {
+        color: #DADADA;
+      }
     }
 
     #root {
@@ -49,6 +53,15 @@ html {
         border-top-left-radius: 0;
         width: auto;
         margin-right: 10px;
+        transition: all 0.225s;
+
+        &.open {
+          margin-right: 20px;
+        }
+
+        .MuiListItemIcon-root {
+          transition: all 0.225s;
+        }
 
         &.Mui-selected {
           background-color: rgba($color: #E74C3C, $alpha: 0.1);

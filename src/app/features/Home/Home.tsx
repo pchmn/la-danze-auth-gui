@@ -1,3 +1,4 @@
+import { LinkProps } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
@@ -6,12 +7,14 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ChevronRightOutlinedIcon from '@material-ui/icons/ChevronRightOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useRouteMatch } from 'react-router-dom';
+import { AnimatedRoute, AnimatedSwitch } from '../../shared/animation/RouteTransition';
 import styles from './Home.module.scss';
 
 const drawerWidth = 290;
@@ -76,6 +79,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  tooltip: {
+    fontSize: '1.1rem',
+  }
 }));
 
 export default function Home() {
@@ -83,9 +89,14 @@ export default function Home() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   let [textVisibility, setTextVisibility] = useState<'hidden' | 'visible'>();
+  let { url } = useRouteMatch();
+  let [key, setKey] = useState<string | number>();
+  const location = useLocation();
 
   useEffect(() => {
     setTextVisibility('hidden');
+    setKey(Math.random());
+    console.log('in Home')
   }, [])
 
   const handleDrawerOpen = () => {
@@ -104,98 +115,107 @@ export default function Home() {
   }
 
   return (
-    <div className={`${classes.root} ${styles.Home}`}>
-      <CssBaseline />
-      {/* <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
-        })}
-      >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, {
-              [classes.hide]: open,
-            })}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            Mini variant drawer
-          </Typography>
-        </Toolbar>
-      </AppBar> */}
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
+    <>
+      <div className={`${classes.root} ${styles.Home}`}>
+        <CssBaseline />
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={styles.toolbar}>
-          {/* <IconButton onClick={handleDrawerClose}>
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={styles.toolbar}>
+            {/* <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton> */}
-          <div className={`${styles.logo} ${open ? styles.logoOpen : ''}`}>
-            <img src="/images/logo-48px.png" />
-            <span>La Danze en LDC</span>
+            <div className={`${styles.logo} ${open ? styles.logoOpen : ''}`}>
+              <img src="/images/logo-48px.png" />
+              <span>La Danze en LDC</span>
+            </div>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleDrawer}
+              edge="start"
+              className={`${styles.toggleButton} ${open ? styles.open : ''}`}
+            >
+              <ChevronRightOutlinedIcon />
+            </IconButton>
           </div>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleDrawer}
-            edge="start"
-            className={`${styles.toggleButton} ${open ? styles.open : ''}`}
-          >
-            <ChevronRightOutlinedIcon />
-          </IconButton>
-        </div>
-        {/* <Divider /> */}
-        <List>
-          {['Mon compte', 'Paramètres'].map((text, index) => (
-            <ListItem selected={index % 2 === 0} button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <AccountCircleOutlinedIcon /> : <SettingsOutlinedIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-          facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-          tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-          consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-          vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-          hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-          tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-          nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-          accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
-      </main>
-    </div>
+          {/* <Divider /> */}
+          <List>
+            <DrawerListItem onClick={() => setKey(Math.random())} to="/my-account" title="Mon compte" selected={url === '/my-account'} key="Mon compte" open={open}>
+              <ListItemIcon><AccountCircleOutlinedIcon /></ListItemIcon>
+              <ListItemText primary="Mon compte" />
+            </DrawerListItem>
+            <DrawerListItem onClick={() => setKey(Math.random())} to="/settings" title="Paramètres" selected={url === '/settings'} key="Paramètres" open={open}>
+              <ListItemIcon><SettingsOutlinedIcon /></ListItemIcon>
+              <ListItemText primary="Paramètres" />
+            </DrawerListItem>
+            {/* {['Mon compte', 'Paramètres'].map((text, index) => (
+            <Tooltip classes={classes} title={index % 2 === 0 ? 'Mon compte' : 'Paramètres'} placement="right">
+              <ListItem selected={index % 2 === 0} button key={text}>
+                <ListItemIcon>{index % 2 === 0 ? <AccountCircleOutlinedIcon /> : <SettingsOutlinedIcon />}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </Tooltip>
+
+          ))} */}
+          </List>
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          {key}
+          <AnimatedSwitch switchKey={key}>
+            <AnimatedRoute path="/my-account">Mon compte</AnimatedRoute>
+            <AnimatedRoute path="/settings">Paramètres</AnimatedRoute>
+          </AnimatedSwitch>
+        </main>
+      </div>
+    </>
   );
+}
+
+interface DrawerListItemProps extends LinkProps {
+  title: string;
+  open?: boolean;
+  selected: boolean;
+  to: string;
+}
+
+function DrawerListItem({ children, open, title, selected, to, ...otherProps }: DrawerListItemProps) {
+  return (
+    <Link to={to} {...otherProps}>
+      <ListItem selected={selected} button key={title} className={open ? 'open' : ''}>
+        {children}
+      </ListItem>
+    </Link>
+  );
+
+  if (open) {
+    return (
+      <Link to={to}>
+        <ListItem selected={selected} button key={title}>
+          {children}
+        </ListItem>
+      </Link>
+    );
+  }
+  return (
+    <Link to={to}>
+      <Tooltip title={title} placement="right">
+        <ListItem selected={selected} button key={title}>
+          {children}
+        </ListItem>
+      </Tooltip>
+    </Link>
+
+  )
 }
