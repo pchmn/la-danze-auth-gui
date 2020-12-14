@@ -33,6 +33,11 @@
   }
 
   .paper {
+    position: relative;
+      overflow: auto;
+      flex: 1;
+      padding: 70px;
+      max-width: 530px;
         
     @media (max-width: 530px) {
       padding: 50px;

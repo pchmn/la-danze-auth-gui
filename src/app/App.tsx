@@ -1,20 +1,31 @@
-import React from 'react';
-import { Redirect, Route, Switch } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Redirect } from "react-router-dom";
 import './App.scss';
 import { withInitApp } from './core/initApp/withInitApp';
 import { Auth } from './features/Auth/Auth';
+import Home from './features/Home/Home';
+import { AnimatedRoute, AnimatedSwitch } from './shared/animation/RouteTransition';
 
 
 function AppComponent() {
+  const [key, setKey] = useState<string | number>();
+
+  useEffect(() => {
+    setKey(Math.random());
+  }, [])
+
   return (
-    <Switch>
-      <Route path="/(signin|signup)" fullHeight={true}>
+    <AnimatedSwitch switchKey={key}>
+      <AnimatedRoute path="/(signin|signup)" fullHeight={true}>
         <Auth />
-      </Route>
-      <Route exact path="/">
-        <Redirect to="/signup/account-created" />
-      </Route>
-    </Switch>
+      </AnimatedRoute>
+      <AnimatedRoute path="/(my-account|settings)" fullHeight={true}>
+        <Home />
+      </AnimatedRoute>
+      <AnimatedRoute exact path="/">
+        <Redirect to="/my-account" />
+      </AnimatedRoute>
+    </AnimatedSwitch>
   );
 }
 

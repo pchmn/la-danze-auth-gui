@@ -11,7 +11,7 @@ export function MountTransition({ children, fullHeight }: React.PropsWithChildre
       exit={{ opacity: 0, scale: 1 }}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      style={{ height: fullHeight ? '100%' : 'auto' }}
+      style={{ height: fullHeight ? '100%' : 'auto', overflow: fullHeight ? 'hidden' : 'auto' }}
     >
       {children}
     </motion.div>

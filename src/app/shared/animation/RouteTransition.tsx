@@ -18,15 +18,15 @@ export function AnimatedRoute({ children, fullHeight, ...otherProps }: AnimatedR
 }
 
 interface AnimatedSwitchProps extends SwitchProps {
-  key?: string;
+  switchKey?: string | number;
 }
 
-export function AnimatedSwitch({ children, location, key, ...otherProps }: AnimatedSwitchProps) {
+export function AnimatedSwitch({ children, location, switchKey, ...otherProps }: AnimatedSwitchProps) {
   const originalLocation = useLocation();
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <Switch location={location ? location : originalLocation} key={key ? key : originalLocation.pathname} {...otherProps}>
+      <Switch location={location ? location : originalLocation} key={switchKey || originalLocation.pathname} {...otherProps}>
         {children}
       </Switch>
     </AnimatePresence>
