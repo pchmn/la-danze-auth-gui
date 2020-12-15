@@ -4,7 +4,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { AnimatedRoute, AnimatedSwitch } from '../../shared/animation/RouteTransition';
+import { AnimatedRoute, AnimatedSwitch } from '../../shared/AnimatedRouter/RouteTransition';
 import styles from './Auth.module.scss';
 import { SignIn } from './SignIn/SignIn';
 import { SignUp } from './SignUp/SignUp';

@@ -1,7 +1,7 @@
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
-import { AnimatedRoute, AnimatedSwitch } from '../../../shared/animation/RouteTransition';
+import { AnimatedRoute, AnimatedSwitch } from '../../../shared/AnimatedRouter/RouteTransition';
 import { FormikTextField } from '../../../shared/components/FormikTextField';
 import { useSignUp } from './SignUp.hooks';
 import styles from './SignUp.module.scss';

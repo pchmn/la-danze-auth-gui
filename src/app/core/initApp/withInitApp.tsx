@@ -1,15 +1,14 @@
 import { ApolloClient, ApolloProvider, createHttpLink, gql, InMemoryCache } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
-import { ThemeProvider } from "@material-ui/core";
+import { ThemeProvider, unstable_createMuiStrictModeTheme as createMuiTheme } from "@material-ui/core";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import { AnimatePresence } from "framer-motion";
 import jwt_decode, { JwtPayload } from "jwt-decode";
 import React from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { ConfigUtils } from "../../../config/env/config.utils";
-import { MountTransition } from "../../shared/animation/MountTransition";
+import { MountTransition } from "../../shared/AnimatedRouter/MountTransition";
 import { store } from "../redux/store";
 import { getStorage, setStorage, StorageKey } from "../storage/appStorage";
 import styles from './initApp.module.scss';
