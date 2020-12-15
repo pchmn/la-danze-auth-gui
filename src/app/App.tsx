@@ -4,7 +4,7 @@ import './App.scss';
 import { withInitApp } from './core/initApp/withInitApp';
 import { Auth } from './features/Auth/Auth';
 import Home from './features/Home/Home';
-import { AnimatedRoute, AnimatedSwitch } from './shared/animation/RouteTransition';
+import { AnimatedRoute, AnimatedSwitch } from './shared/AnimatedRouter/RouteTransition';
 
 
 function AppComponent() {
