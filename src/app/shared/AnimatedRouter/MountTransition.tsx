@@ -11,7 +11,7 @@ export function MountTransition({
   exit = 'out',
   initial = 'initial',
   animate = 'in',
-  animationType = 'fade',
+  animationType = 'scale',
   variants,
   fullHeight,
   ...otherProps }: React.PropsWithChildren<MountTransitionProps>) {

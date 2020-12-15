@@ -1,11 +1,8 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import MenuIcon from '@material-ui/icons/Menu';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import React from 'react';
 import { AnimatedRoute, AnimatedSwitch } from '../../shared/AnimatedRouter/RouteTransition';
@@ -45,16 +42,6 @@ export default function Home() {
     <>
       <div className={`${classes.root} ${styles.Home}`}>
         <CssBaseline />
-        <Hidden smUp implementation="css">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={toggleDrawer}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Hidden>
         <MiniDrawer>
           <DrawerListItem onClick={updateSwitchKey} to="/my-account" title="Mon compte" selected={url === '/my-account'} key="Mon compte">
             <ListItemIcon><AccountCircleOutlinedIcon /></ListItemIcon>
