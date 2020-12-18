@@ -33,7 +33,7 @@ export function MountTransition({
       animate={animate}
       variants={variants}
       transition={{ duration: 0.225 }}
-      style={{ height: fullHeight ? '100%' : 'auto', overflow: fullHeight ? 'hidden' : 'auto' }}
+      style={fullHeight ? { display: 'flex', flexDirection: 'column', flex: 1 } : {}}
       {...otherProps}
     >
       {children}
