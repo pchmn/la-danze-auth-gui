@@ -2,5 +2,9 @@
 // allows you to do things like:
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
-import './app/features/Auth/SignUp/node_modules/@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+import { configure } from 'enzyme';
+import './config/i18n/translation';
 
+configure({ adapter: new Adapter() });

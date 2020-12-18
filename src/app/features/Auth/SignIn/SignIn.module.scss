@@ -1,3 +1,22 @@
+.signInHelper {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #979797;
+  font-size: 0.9rem;
+
+  @media (max-width: 530px) {
+    margin-top: 20px;
+  }
+
+  a {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-left: 5px;
+  }
+}
+
 .title {
   margin-top: 0;
   margin-bottom: 50px;
@@ -10,7 +29,6 @@
 }
 
 .form {
-  margin: auto;
 
   .textField {
     display: block;

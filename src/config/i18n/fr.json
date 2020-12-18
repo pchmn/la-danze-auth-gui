@@ -21,7 +21,12 @@
       "emailFormatError": "L'email n'est pas valide",
       "passwordHelper": "Le mot de passe doit contenir au moins 8 caractères.",
       "confirmPassword": "Confirmation",
-      "passwordsMismatch": "Mots de passe différent"
+      "passwordsMismatch": "Mots de passe différent",
+      "welcome": "Bienvenue {{name}} !",
+      "emailConfirmationHelper": "Un email de confirmation t'as été envoyé afin de valider ton compte.",
+      "myAccount": "Mon compte",
+      "accountCreated": "Création réussie.",
+      "emailAlreadyUsed": "Email déjà utilisé."
     },
     "signIn": {
       "title": "Se connecter",

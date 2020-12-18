@@ -1,5 +1,6 @@
 .Container {
-  display: flex;
+  display: flex !important;
+  flex: 1;
   height: 100%;
   padding: 0;
   margin: 0;

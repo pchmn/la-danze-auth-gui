@@ -20,6 +20,7 @@ html {
 
     #root {
       height: 100%;
+      display: flex;
     }
 
     .flex-column {
@@ -42,6 +43,10 @@ html {
       border-radius: 30px;
       padding: 6px 40px;
       text-transform: none;
+
+      a {
+        color: inherit;
+      }
 
       &.MuiIconButton-root {
         padding: 12px;
