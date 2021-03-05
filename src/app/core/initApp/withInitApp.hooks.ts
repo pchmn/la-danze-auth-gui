@@ -28,9 +28,9 @@ export function useRefreshToken() {
       .catch(err => {
         console.log('err, refresh token', err.graphQLErrors, err.networkError);
         // Redirect to signin
-        if (!['/signin', '/signup'].includes(location.pathname)) {
-          history.push('/signin');
-        }
+        // if (!['/signin', '/signup'].includes(location.pathname)) {
+        //   history.push('/signin');
+        // }
         removeStorage(StorageKey.AccessToken);
       });
   }, []);

@@ -10,17 +10,18 @@ import { AnimatedRoute, AnimatedSwitch } from './shared/AnimatedRouter/RouteTran
 
 function AppComponent() {
   const { switchKey } = useAnimatedRouter();
+  console.log('in App not demo', switchKey)
 
   return (
     <AnimatedSwitch switchKey={switchKey}>
       <AnimatedRoute path="/(signin|signup)" fullHeight={true}>
         <Auth />
       </AnimatedRoute>
-      <AnimatedRoute path="/(my-account|settings)" fullHeight={true}>
+      <AnimatedRoute path="/home" fullHeight={true}>
         <Home />
       </AnimatedRoute>
       <AnimatedRoute exact path="/">
-        <Redirect to="/my-account" />
+        <Redirect to="/home/my-account" />
       </AnimatedRoute>
     </AnimatedSwitch>
   );

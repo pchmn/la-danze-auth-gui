@@ -32,7 +32,7 @@ export function useSignUp() {
   });
   form.onSubmit = onSubmit;
   // GraphQL
-  const [signUp, { data, loading, error }] = useMutation(SIGN_UP, {
+  const [signUp, { data, loading }] = useMutation(SIGN_UP, {
     onError(err) {
       handleError(err.graphQLErrors)
     }
